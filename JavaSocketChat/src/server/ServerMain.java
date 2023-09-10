@@ -5,21 +5,31 @@ import java.io.InputStreamReader;
 import java.io.BufferedReader;
 
 public class ServerMain {
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        try{
+        try {
             // Definindo a porta de comunicação
             ServerSocket servidor = new ServerSocket(7000);
             System.out.println("Servidor iniciado na porta 7000...");
             //Espera conexão
-            while(true){
+            while (true) {
                 Socket cliente = servidor.accept();
                 System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());
+                
                 InputStreamReader fluxoDados = new InputStreamReader(cliente.getInputStream());
                 BufferedReader input = new BufferedReader(fluxoDados);
-                System.out.println("Mensagem recebida: " + input.readLine());
+                
+                String mensagem;
+                while ((mensagem = input.readLine()) != null) {
+                    System.out.println("Mensagem recebida: " + mensagem);
+                    if (mensagem.equals("sair")) {
+                        break;
+                    }
+                }
+
+                cliente.close();
             }
-        }catch (Exception e){
+        } catch (Exception e){
             System.out.println("Erro: " + e.getMessage());
         }
     }

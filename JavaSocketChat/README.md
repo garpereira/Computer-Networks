@@ -27,13 +27,10 @@ This is a sample project that demonstrates the creation of a simple Java chat ap
 ```
 src
 ├── server
-│   ├── ChatServer.java
 │   └── ServerMain.java
-├── client
-│   ├── ChatClient.java
-│   └── ClientMain.java
-└── utils
-    └── Message.java
+└── client
+    └── ClientMain.java
+
 ```
 
 ## Getting Started
