@@ -20,7 +20,7 @@ public class ServerMain {
                 Socket cliente = servidor.accept();
                 System.out.println("Cliente conectado: " + cliente.getInetAddress().getHostAddress());
                 
-                try{
+                try {
                     ObjectInputStream inputCliente = new ObjectInputStream(cliente.getInputStream());
                     ObjectOutputStream outputServer = new ObjectOutputStream(cliente.getOutputStream());
                     while (true) {
@@ -29,6 +29,9 @@ public class ServerMain {
                         System.out.println("Mensagem recebida do Cliente: " + mensagem);
                         if (mensagem.equals("sair")) {
                             inputCliente.close();
+                            outputServer.close();
+                            mensagemInput.close();
+                            servidor.close();
                             break;
                         }
                         // Enviando a mensagem para o cliente
