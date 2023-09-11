@@ -8,17 +8,14 @@ import java.util.Scanner;
 public class ClientMain {
     public static void main(String[] args) {
         try {
-            Socket cliente = new Socket("127.0.0.1", 7000);
+            Socket cliente = new Socket("172.21.219.198", 9090);
 
             System.out.println("Conectado ao servidor! Digite 'sair' para encerrar a conexão.");
             ObjectOutputStream output = new ObjectOutputStream(cliente.getOutputStream());
             Scanner inputCliente = new Scanner(System.in);
 
-            // Recebendo a mensagem do servidor
-            ObjectInputStream inputServer = new ObjectInputStream(cliente.getInputStream());
-
             // Cria um novo thread para receber mensagens do servidor
-            Thread t = new Thread(new ServerHandler(inputServer));
+            Thread t = new Thread(new ServerHandler(cliente));
             t.start();
 
             while (true) {
@@ -42,14 +39,16 @@ public class ClientMain {
 }
 
 class ServerHandler implements Runnable {
-    private ObjectInputStream inputServer;
+    private Socket cliente;
 
-    public ServerHandler(ObjectInputStream inputServer) {
-        this.inputServer = inputServer;
+    public ServerHandler(Socket cliente) {
+        this.cliente = cliente;
     }
 
     public void run() {
         try {
+            ObjectInputStream inputServer = new ObjectInputStream(cliente.getInputStream());
+
             while (true) {
                 String mensagemServer = inputServer.readObject().toString();
                 if (mensagemServer != null) {
