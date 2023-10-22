@@ -14,15 +14,14 @@ Este é um projeto simples que demonstra como criar uma página HTML com conteú
 
    ```shell
    git clone https://github.com/garpereira/Computer-Networks.git
-
+   ```
 1.1 Acesse o diretório recém-clonado:
 
    ```shell
    cd Computer-Networks
-   
    git sparse-checkout init --cone
    git sparse-checkout set PROJETO_WEB
-
+   ```
 2. Abra o arquivo index.html em seu navegador:
 
     . Basta abrir o arquivo index.html em seu navegador para ver a página em funcionamento.
