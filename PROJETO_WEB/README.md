@@ -35,8 +35,11 @@ Se você deseja configurar o projeto para rodar no servidor Apache2, siga estas 
 4. Copie o conteúdo do projeto para o diretório raiz do Apache2. Isso pode ser feito, por exemplo, copiando os arquivos para o diretório `/var/www/html/` no seu servidor.
 
 5. Configure um VirtualHost no Apache2 para o seu projeto. Você pode criar um arquivo de configuração para o seu site em `/etc/apache2/sites-available/` e habilitá-lo usando o comando `a2ensite`. Não se esqueça de reiniciar o Apache2 para que as alterações tenham efeito.
+   ```shell
+      sudo systemctl restart apache2
+   ```
 
-6. Certifique-se de que as configurações do Apache2, como as portas e as permissões de diretório, estejam configuradas corretamente para o seu projeto.
+7. Certifique-se de que as configurações do Apache2, como as portas e as permissões de diretório, estejam configuradas corretamente para o seu projeto.
 
 ## API de Geolocalização
 
