@@ -24,7 +24,7 @@ Este é um projeto simples que demonstra como criar uma página HTML com conteú
    ```
 2. Abra o arquivo index.html em seu navegador:
 
-    .Basta abrir o arquivo index.html em seu navegador para ver a página em funcionamento.
+    - Basta abrir o arquivo index.html em seu navegador para ver a página em funcionamento.
 
 ## Configuração do Servidor Apache2
 
@@ -49,8 +49,8 @@ Para obter informações de geolocalização aproximada do visitante, este proje
 
 Você pode personalizar o projeto da seguinte forma:
 
-    .Modificar o estilo: Você pode ajustar a aparência da página modificando as classes do Tailwind CSS no arquivo HTML.
-    .Alterar o comportamento: Você pode estender a funcionalidade do JavaScript para incluir mais informações ou personalizar o conteúdo dinâmico.
+   - Modificar o estilo: Você pode ajustar a aparência da página modificando as classes do Tailwind CSS no arquivo HTML.
+   - Alterar o comportamento: Você pode estender a funcionalidade do JavaScript para incluir mais informações ou personalizar o conteúdo dinâmico.
 
 ## Como Contribuir
 
@@ -61,4 +61,4 @@ Se você deseja contribuir para este projeto, sinta-se à vontade para abrir pro
 Este projeto está sob a Licença MIT - consulte o arquivo LICENSE para obter detalhes.
 
 ## Autor
-    .Gabriel Almeida
+    - Gabriel Almeida
