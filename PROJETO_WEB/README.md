@@ -24,7 +24,7 @@ Este é um projeto simples que demonstra como criar uma página HTML com conteú
    ```
 2. Abra o arquivo index.html em seu navegador:
 
-    . Basta abrir o arquivo index.html em seu navegador para ver a página em funcionamento.
+    .Basta abrir o arquivo index.html em seu navegador para ver a página em funcionamento.
 
 ## Configuração do Servidor Apache2
 
