@@ -61,4 +61,4 @@ Se você deseja contribuir para este projeto, sinta-se à vontade para abrir pro
 Este projeto está sob a Licença MIT - consulte o arquivo LICENSE para obter detalhes.
 
 ## Autor
-    - Gabriel Almeida
+   - Gabriel Almeida
