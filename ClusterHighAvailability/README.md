@@ -11,34 +11,46 @@ Este repositório contém as instruções e recursos necessários para desenvolv
 
 ## Instruções de Configuração
 
-1. Instale o [Kind (Kubernetes in Docker)](https://kind.sigs.k8s.io/):
+### 1. Instale o [Kind (Kubernetes in Docker)](https://kind.sigs.k8s.io/):
    ```sh
    go install sigs.k8s.io/kind@v0.20.0
    ```
 
-2. Crie um cluster Kind chamado "high-availability":
+### 2. Crie um cluster Kind chamado "high-availability":
    ```sh
    kind create cluster --name=high-availability
    ```
 
-3. Ative o cluster criado e verifique as informações do cluster:
+### 3. Ative o cluster criado e verifique as informações do cluster:
    ```sh
    kubectl cluster-info --context kind-high-availability
    ```
 
-4. Implante os pods utilizando o arquivo de configuração `deployment.yaml`:
+### 4. Implante os pods utilizando o arquivo de configuração `deployment.yaml`:
    ```sh
    kubectl apply -f deployment.yaml
    ```
 
-5. Verifique se os pods foram criados corretamente:
+### 5. Verifique se os pods foram criados corretamente:
    ```sh
    kubectl get pods
    ```
 
-6. Estabeleça a conexão de portas para acessar a aplicação pelo Kubernetes:
+### 6. Configurar o Service para Balanceamento de Carga:
+
+Para garantir uma distribuição uniforme do tráfego entre os seus pods e evitar a sobrecarga de um serviço ou aplicação específica, é crucial configurar um serviço no Kubernetes. O arquivo `service.yaml` desempenha um papel fundamental nesta etapa, permitindo a criação de um ponto de entrada estável para os usuários acessarem sua aplicação. 
+
    ```sh
-   kubectl port-forward deployment/php-deployment 8888:80
+   kubectl apply -f service.yaml
+   ```
+
+Ao aplicar este arquivo, você está garantindo que o tráfego seja distribuído uniformemente entre os pods correspondentes à medida que sua aplicação escala ou enfrenta demandas variáveis, garantindo uma experiência confiável para os usuários finais.
+
+Com esta configuração, sua aplicação estará pronta para lidar com um grande volume de tráfego, proporcionando estabilidade e desempenho, independentemente das flutuações na demanda.
+
+### 7. Estabeleça a conexão de portas para acessar a aplicação pelo Kubernetes:
+   ```sh
+   kubectl port-forward service/php-service 8888:80
    ```
 
 Agora você pode acessar a aplicação através da porta 8888 usando o endereço http://127.0.0.1:8888.
